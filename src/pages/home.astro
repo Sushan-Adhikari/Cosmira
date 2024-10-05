@@ -1,5 +1,6 @@
 ---
 import "../style.css";
+import "../asteriod.css";
 ---
 
 <!doctype html>
@@ -39,6 +40,7 @@ import "../style.css";
       <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
       <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
     </div>
+
     <div id="controls">
       <label class="set-view">
         <input type="checkbox" />
@@ -62,6 +64,43 @@ import "../style.css";
     <div id="universe" class="scale-stretched">
       <div id="galaxy">
         <div id="solar-system" class="earth">
+          <div id="asteroid-belt" class="orbit">
+            <div class="pos">
+              <div class="asteroids"></div>
+              <!-- Empty container for asteroids -->
+            </div>
+          </div>
+          <script type="module">
+            const asteroidBelt = document.querySelector(".asteroids");
+            const numAsteroids = 120; // Number of asteroids
+
+            // Function to generate a random position
+            function getRandomPosition(max) {
+              return Math.random() * max; // Generates a random position between 0 and max
+            }
+
+            // Function to create asteroids
+            function createAsteroids() {
+              for (let i = 0; i < numAsteroids; i++) {
+                const asteroid = document.createElement("div");
+                asteroid.classList.add("asteroid");
+
+                // Randomize positions for top and left, ensuring they stay within the bounds
+                const topPosition = getRandomPosition(1000); // Random percentage for top (0% to 90%)
+                const leftPosition = getRandomPosition(190); // Random percentage for left (0% to 90%)
+
+                // Set the position styles
+                asteroid.style.top = `${topPosition}%`;
+                asteroid.style.left = `${leftPosition}%`;
+
+                // Append the asteroid to the asteroid belt
+                asteroidBelt.appendChild(asteroid);
+              }
+            }
+
+            createAsteroids(); // Call the function to create asteroids
+          </script>
+
           <div id="mercury" class="orbit">
             <div class="pos">
               <div class="planet">
