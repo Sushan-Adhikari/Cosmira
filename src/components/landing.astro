@@ -1,0 +1,57 @@
+---
+import Logo from "./assets/logo.png";
+import videoSrc from "./assets/background.mp4";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Orrery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="relative m-0 p-0 w-full h-screen flex flex-col justify-center items-center text-white overflow-hidden"
+  >
+    <video
+      class="fixed top-0 left-0 w-full h-full object-cover -z-10"
+      autoplay
+      muted
+      loop
+    >
+      <source class="" src={videoSrc} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <img
+      class="absolute top-10 left-10 w-20 h-20 z-10 hover:scale-110 transition-transform hover:cursor-pointer"
+      src={Logo.src}
+      alt="Logo"
+    />
+
+    <div id="content" class="text-center mt-36 md:mt-36">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-slate-100">
+        WELCOME TO WEB ORRERY
+      </h1>
+      <p class="text-md md:text-xl mb-8 text-slate-300">
+        Explore the solar system simulation right in your browser!
+      </p>
+      <button
+        onclick="window.location.href='/home'"
+        class="rounded-md bg-transparent p-3 font-bold border-slate-500 text-white px-6 cursor-pointer transition-colors duration-300 hover:bg-[#ffffff] hover:text-black"
+      >
+        Explore
+      </button>
+    </div>
+  </body>
+</html>
