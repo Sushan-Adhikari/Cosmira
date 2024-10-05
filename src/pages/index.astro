@@ -162,59 +162,83 @@ import "../style.css";
   </body>
 </html>
 
-<script is:inline>
-  $(window).load(function () {
-    var body = $("body"),
-      universe = $("#universe"),
-      solarsys = $("#solar-system");
+<script>
+  window.addEventListener("load", function () {
+    var body = document.querySelector("body"),
+      universe = document.getElementById("universe"),
+      solarsys = document.getElementById("solar-system");
 
     var init = function () {
-      body
-        .removeClass("view-2D opening")
-        .addClass("view-3D")
-        .delay(2000)
-        .queue(function () {
-          $(this).removeClass("hide-UI").addClass("set-speed");
-          $(this).dequeue();
-        });
+      body.classList.remove("view-2D", "opening");
+      body.classList.add("view-3D");
+      setTimeout(function () {
+        body.classList.remove("hide-UI");
+        body.classList.add("set-speed");
+      }, 2000);
     };
 
     var setView = function (view) {
-      universe.removeClass().addClass(view);
+      universe.className = view;
     };
 
-    $("#toggle-data").click(function (e) {
-      body.toggleClass("data-open data-close");
-      e.preventDefault();
+    document
+      .getElementById("toggle-data")
+      .addEventListener("click", function (e) {
+        body.classList.toggle("data-open");
+        body.classList.toggle("data-close");
+        e.preventDefault();
+      });
+
+    document
+      .getElementById("toggle-controls")
+      .addEventListener("click", function (e) {
+        body.classList.toggle("controls-open");
+        body.classList.toggle("controls-close");
+        e.preventDefault();
+      });
+
+    document.querySelectorAll("#data a").forEach(function (element) {
+      element.addEventListener("click", function (e) {
+        var ref = this.className;
+        solarsys.className = ref;
+        document.querySelectorAll("#data a").forEach(function (el) {
+          el.classList.remove("active");
+        });
+        this.classList.add("active");
+        e.preventDefault();
+      });
     });
 
-    $("#toggle-controls").click(function (e) {
-      body.toggleClass("controls-open controls-close");
-      e.preventDefault();
+    document.querySelectorAll(".set-view").forEach(function (element) {
+      element.addEventListener("click", function () {
+        body.classList.toggle("view-3D");
+        body.classList.toggle("view-2D");
+      });
     });
 
-    $("#data a").click(function (e) {
-      var ref = $(this).attr("class");
-      solarsys.removeClass().addClass(ref);
-      $(this).parent().find("a").removeClass("active");
-      $(this).addClass("active");
-      e.preventDefault();
+    document.querySelectorAll(".set-zoom").forEach(function (element) {
+      element.addEventListener("click", function () {
+        body.classList.toggle("zoom-large");
+        body.classList.toggle("zoom-close");
+      });
     });
 
-    $(".set-view").click(function () {
-      body.toggleClass("view-3D view-2D");
+    document.querySelectorAll(".set-speed").forEach(function (element) {
+      element.addEventListener("click", function () {
+        setView("scale-stretched set-speed");
+      });
     });
-    $(".set-zoom").click(function () {
-      body.toggleClass("zoom-large zoom-close");
+
+    document.querySelectorAll(".set-size").forEach(function (element) {
+      element.addEventListener("click", function () {
+        setView("scale-s set-size");
+      });
     });
-    $(".set-speed").click(function () {
-      setView("scale-stretched set-speed");
-    });
-    $(".set-size").click(function () {
-      setView("scale-s set-size");
-    });
-    $(".set-distance").click(function () {
-      setView("scale-d set-distance");
+
+    document.querySelectorAll(".set-distance").forEach(function (element) {
+      element.addEventListener("click", function () {
+        setView("scale-d set-distance");
+      });
     });
 
     init();
