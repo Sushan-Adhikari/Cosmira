@@ -1,0 +1,39 @@
+---
+// src/components/Navigation.astro
+const objects = [
+  { name: "Sun", slug: "sun" },
+  { name: "Mercury", slug: "mercury" },
+  { name: "Venus", slug: "venus" },
+  { name: "Earth", slug: "earth" },
+  { name: "Mars", slug: "mars" },
+  { name: "Jupiter", slug: "jupiter" },
+  { name: "Saturn", slug: "saturn" },
+  { name: "Uranus", slug: "uranus" },
+  { name: "Neptune", slug: "neptune" },
+  { name: "Asteroids", slug: "asteroids" },
+];
+const { object } = Astro.params;
+---
+
+<!-- Sidebar Navigation -->
+<nav class="bg-gray-900 text-white h-screen p-6 w-64">
+  <h2 class="text-2xl font-bold mb-8 text-center">Space Objects</h2>
+  <ul class="flex flex-col space-y-4 list-none">
+    {
+      objects.map((obj) => (
+        <li  key={obj.slug}>
+          <a
+            href={`/space/${obj.slug}`}
+            class={` no-underline  block px-4 py-2 text-white rounded transition ${
+              object === obj.slug
+                ? "bg-blue-500 text-white" /* Active state styling */
+                : "hover:bg-gray-700 hover:text-white"
+            }`}
+          >
+            {obj.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

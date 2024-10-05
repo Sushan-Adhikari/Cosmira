@@ -1,0 +1,132 @@
+---
+import Sidebar from "../../components/sidebar.astro";
+import Layout from "../../layouts/layout.astro";
+
+export async function getStaticPaths() {
+  const pages = [
+    {
+      slug: "sun",
+      title: "Astro Store",
+      text: "Welcome to the Astro store!",
+      image: "../../../assets/Sun.gif",
+    },
+    {
+      slug: "earth",
+      title: "Astro products",
+      text: "We have lots of products for you",
+      image: "../../../assets/Earth.gif",
+    },
+    {
+      slug: "moon",
+      title: "The ultimate Astro handbook",
+      text: "If you want to learn Astro, you must read this book.",
+      image: "../../../assets/Moon.gif",
+    },
+  ];
+  return pages.map(({ slug, title, text, image }) => {
+    return {
+      params: { slug },
+      props: { title, text, image },
+    };
+  });
+}
+
+const { title, text, image } = Astro.props;
+---
+
+<Layout>
+  <div class="flex">
+    <section class="sidebar"><Sidebar /></section>
+    <section class="bg-black text-white w-full">
+      <div class="planet-details flex justify-between w-full">
+        <div class="content ml-10">
+          <h1 class="text-3xl font-bold">{title}</h1>
+          <h2>Description</h2>
+          <p>{text}</p>
+        </div>
+        <div class="img">
+          <img src={image} alt={title} />
+        </div>
+      </div>
+
+      <div class="sound flex gap-2 items-center ml-10 mt-10 rounded-full">
+        <button
+          class="cursor-pointer"
+          id="audio-control"
+          aria-label="Play audio"
+        >
+          <!-- Icon for play, you can use an SVG or font icon -->
+          🔊
+        </button>
+        <audio id="audio" class="hidden">
+          <source src="../../../assets/sound.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <p>This is how Earth Sounds</p>
+      </div>
+      <div class="flex ml-10 ">
+        <table
+          class="table-auto bg-gray-800 text-white border-separate border-spacing-0"
+        >
+          <thead>
+            <tr>
+              <th colspan="2" class="px-4 py-2 bg-gray-500 text-center"
+                >Which one is hazardous?</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >A</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >Yes</td
+              >
+            </tr>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >B</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >No</td
+              >
+            </tr>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >C</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >No</td
+              >
+            </tr>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >D</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >Yes</td
+              >
+            </tr>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >E</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >Yes</td
+              >
+            </tr>
+            <tr>
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >F</td
+              >
+              <td class="border border-black px-6 py-2 bg-gray-700 text-center"
+                >Yes</td
+              >
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
