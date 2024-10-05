@@ -30,9 +30,7 @@ import videoSrc from "./assets/background.mp4";
       }
     </style>
   </head>
-  <body
-    class=""
-  >
+  <body class="">
     <video class="background-video" autoplay muted loop>
       <source src={videoSrc} type="video/mp4" />
       Your browser does not support the video tag.
@@ -43,17 +41,20 @@ import videoSrc from "./assets/background.mp4";
       src={Logo.src}
       alt="Logo"
     />
-
-    <div id="content" class="text-center mt-36 md:mt-36">
+    <div id="content" class="text-center mt-96 md:mt-96">
+      <!-- Increased margin-top -->
       <h1 class="text-4xl md:text-6xl font-bold mb-4 text-slate-100">
-        WELCOME TO WEB ORRERY
+        Welcome to Web Orrery
       </h1>
+      <p class="text-md md:text-xl mb-2 text-slate-300">
+        A dynamic simulation of the solar system.
+      </p>
       <p class="text-md md:text-xl mb-8 text-slate-300">
-        Explore the solar system simulation right in your browser!
+        Explore a solar system simulation, right in your browser!
       </p>
       <button
         onclick="window.location.href='/home'"
-        class="rounded-md bg-transparent p-3 font-bold border-slate-500 text-white px-6 cursor-pointer transition-colors duration-300 hover:bg-[#ffffff] hover:text-black"
+        class="rounded-md bg-blue-500 p-3 font-bold text-white px-6 cursor-pointer transition-colors duration-300 hover:bg-blue-400"
       >
         Explore
       </button>
