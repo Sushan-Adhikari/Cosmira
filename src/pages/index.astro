@@ -19,9 +19,9 @@ import "../style.css";
     <div id="navbar">
       <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
       <h1>
-        3D Solar System<br /><span
+        Welcome To Orrery Space App<br /><span
           >by
-          <i>@Cosmira</i></span
+          <i>@Team Cosmira</i></span
         >
       </h1>
       <a id="toggle-controls" href="#controls"
@@ -162,11 +162,11 @@ import "../style.css";
 
 <script>
   window.addEventListener("load", function () {
-    var body = document.querySelector("body"),
+    let body = document.querySelector("body"),
       universe = document.getElementById("universe"),
       solarsys = document.getElementById("solar-system");
 
-    var init = function () {
+    let init = function () {
       body.classList.remove("view-2D", "opening");
       body.classList.add("view-3D");
       setTimeout(function () {
@@ -175,7 +175,7 @@ import "../style.css";
       }, 2000);
     };
 
-    var setView = function (view) {
+    let setView = function (view) {
       universe.className = view;
     };
 
