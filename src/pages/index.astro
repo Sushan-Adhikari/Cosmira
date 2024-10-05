@@ -1,244 +1,39 @@
 ---
-import "../style.css";
+import Logo from './assets/logo.png';
+import videoSrc from './assets/background.mp4';
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Solar System</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Orrery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="relative m-0 p-0 w-full h-screen flex flex-col justify-center items-center text-white overflow-hidden">
+    <video class="fixed top-0 left-0 w-full h-full object-cover -z-10" autoplay muted loop>
+        <source src={videoSrc} type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
+    <img class="absolute top-10 left-10 w-20 h-20 z-10" src={Logo.src} alt="Logo" />
 
-  <body class="opening hide-UI view-2D zoom-large data-close controls-close">
-    <div id="navbar">
-      <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
-      <h1>
-        3D Solar System<br /><span
-          >by
-          <i>@Cosmira</i></span
+    <div id="content" class="text-center mt-36 md:mt-36">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-slate-100">WELCOME TO WEB ORRERY</h1>
+        <p class="text-md md:text-xl mb-8 text-slate-300">Explore the solar system simulation right in your browser!</p>
+        <button 
+            class="rounded-md bg-transparent p-3 font-bold border-slate-500 text-white px-6 cursor-pointer"
         >
-      </h1>
-      <a id="toggle-controls" href="#controls"
-        ><i class="icon-controls"></i>Controls</a
-      >
+            Explore
+        </button>
     </div>
-    <div id="data">
-      <a class="sun" title="sun" href="#sunspeed">Sun</a>
-      <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
-      <a class="venus" title="venus" href="#venusspeed">Venus</a>
-      <a class="earth active" title="earth" href="#earthspeed">Earth</a>
-      <a class="mars" title="mars" href="#marsspeed">Mars</a>
-      <a class="jupiter" title="jupiter" href="#jupiterspeed">Jupiter</a>
-      <a class="saturn" title="saturn" href="#saturnspeed">Saturn</a>
-      <a class="uranus" title="uranus" href="#uranusspeed">Uranus</a>
-      <a class="neptune" title="neptune" href="#neptunespeed">Neptune</a>
-    </div>
-    <div id="controls">
-      <label class="set-view">
-        <input type="checkbox" />
-      </label>
-      <label class="set-zoom">
-        <input type="checkbox" />
-      </label>
-      <label>
-        <input type="radio" class="set-speed" name="scale" checked />
-        <span>Speed</span>
-      </label>
-      <label>
-        <input type="radio" class="set-size" name="scale" />
-        <span>Size</span>
-      </label>
-      <label>
-        <input type="radio" class="set-distance" name="scale" />
-        <span>Distance</span>
-      </label>
-    </div>
-    <div id="universe" class="scale-stretched">
-      <div id="galaxy">
-        <div id="solar-system" class="earth">
-          <div id="mercury" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Mercury</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="venus" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Venus</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="earth" class="orbit">
-            <div class="pos">
-              <div class="orbit">
-                <div class="pos">
-                  <div class="moon"></div>
-                </div>
-              </div>
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Earth</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="mars" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Mars</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="jupiter" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Jupiter</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="saturn" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <div class="ring"></div>
-                <dl class="infos">
-                  <dt>Saturn</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="uranus" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Uranus</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="neptune" class="orbit">
-            <div class="pos">
-              <div class="planet">
-                <dl class="infos">
-                  <dt>Neptune</dt>
-                  <dd><span></span></dd>
-                </dl>
-              </div>
-            </div>
-          </div>
-          <div id="sun">
-            <dl class="infos">
-              <dt>Sun</dt>
-              <dd><span></span></dd>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+
+</body>
 </html>
-
-<script>
-  window.addEventListener("load", function () {
-    var body = document.querySelector("body"),
-      universe = document.getElementById("universe"),
-      solarsys = document.getElementById("solar-system");
-
-    var init = function () {
-      body.classList.remove("view-2D", "opening");
-      body.classList.add("view-3D");
-      setTimeout(function () {
-        body.classList.remove("hide-UI");
-        body.classList.add("set-speed");
-      }, 2000);
-    };
-
-    var setView = function (view) {
-      universe.className = view;
-    };
-
-    document
-      .getElementById("toggle-data")
-      .addEventListener("click", function (e) {
-        body.classList.toggle("data-open");
-        body.classList.toggle("data-close");
-        e.preventDefault();
-      });
-
-    document
-      .getElementById("toggle-controls")
-      .addEventListener("click", function (e) {
-        body.classList.toggle("controls-open");
-        body.classList.toggle("controls-close");
-        e.preventDefault();
-      });
-
-    document.querySelectorAll("#data a").forEach(function (element) {
-      element.addEventListener("click", function (e) {
-        var ref = this.className;
-        solarsys.className = ref;
-        document.querySelectorAll("#data a").forEach(function (el) {
-          el.classList.remove("active");
-        });
-        this.classList.add("active");
-        e.preventDefault();
-      });
-    });
-
-    document.querySelectorAll(".set-view").forEach(function (element) {
-      element.addEventListener("click", function () {
-        body.classList.toggle("view-3D");
-        body.classList.toggle("view-2D");
-      });
-    });
-
-    document.querySelectorAll(".set-zoom").forEach(function (element) {
-      element.addEventListener("click", function () {
-        body.classList.toggle("zoom-large");
-        body.classList.toggle("zoom-close");
-      });
-    });
-
-    document.querySelectorAll(".set-speed").forEach(function (element) {
-      element.addEventListener("click", function () {
-        setView("scale-stretched set-speed");
-      });
-    });
-
-    document.querySelectorAll(".set-size").forEach(function (element) {
-      element.addEventListener("click", function () {
-        setView("scale-s set-size");
-      });
-    });
-
-    document.querySelectorAll(".set-distance").forEach(function (element) {
-      element.addEventListener("click", function () {
-        setView("scale-d set-distance");
-      });
-    });
-
-    init();
-  });
-</script>
