@@ -19,9 +19,9 @@ import "../style.css";
     <div id="navbar">
       <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
       <h1>
-        3D Solar System<br /><span
+        Welcome To Orrery Space App<br /><span
           >by
-          <i>@Cosmira</i></span
+          <i>@Team Cosmira</i></span
         >
       </h1>
       <a id="toggle-controls" href="#controls"
@@ -162,11 +162,11 @@ import "../style.css";
 
 <script>
   window.addEventListener("load", function () {
-    var body = document.querySelector("body"),
+    let body = document.querySelector("body"),
       universe = document.getElementById("universe"),
       solarsys = document.getElementById("solar-system");
 
-    var init = function () {
+    let init = function () {
       body.classList.remove("view-2D", "opening");
       body.classList.add("view-3D");
       setTimeout(function () {
@@ -175,7 +175,7 @@ import "../style.css";
       }, 2000);
     };
 
-    var setView = function (view) {
+    let setView = function (view) {
       universe.className = view;
     };
 
@@ -240,5 +240,21 @@ import "../style.css";
     });
 
     init();
+  });
+
+  const sun = document.querySelector("#sun");
+  sun.addEventListener("click", () => {
+    alert(
+      "The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as light and infrared radiation."
+    );
+  });
+
+  const planets = document.querySelectorAll(".planet");
+
+  planets.forEach((planet) => {
+    planet.addEventListener("click", () => {
+      const planetName = planet.id.charAt(0).toUpperCase() + planet.id.slice(1);
+      alert(`${planetName} is a planet in the Solar System.`);
+    });
   });
 </script>
