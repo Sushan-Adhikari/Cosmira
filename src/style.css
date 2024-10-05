@@ -147,7 +147,7 @@ body {
     z-index: 1;
     position: absolute;
     overflow: hidden;
-    width: 100%;
+    width: 90%;
     height: 100%;
     background-position: center 40%;
     background-repeat: no-repeat;
@@ -1573,6 +1573,7 @@ h1 span,
 }
 
 #toggle-controls {
+    
     right: 0;
 }
 
@@ -1583,6 +1584,7 @@ h1 span,
     opacity: 1;
     top: 49px;
     padding: 16px;
+    margin-top: 50px;
 }
 
 .data-close #data {
@@ -1633,7 +1635,7 @@ h1 span,
     margin-left: 36px;
     padding-top: 4px;
     font-size: 18px;
-    color: #FFF;
+    color: #0ae8f0;
 }
 
 #controls input {
@@ -1647,7 +1649,7 @@ h1 span,
     position: absolute;
     width: 22px;
     height: 22px;
-    border: 2px solid #FFF;
+    border: 2px solid #04e7c8;
     border-radius: 16px;
 }
 
@@ -1660,7 +1662,7 @@ h1 span,
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background: #FFF;
+    background: #2671a3;
     z-index: 99;
 }
 
@@ -1670,7 +1672,7 @@ h1 span,
     position: absolute;
     width: 100px;
     height: 22px;
-    border: 2px solid #FFF;
+    border: 2px solid #09d8d2;
     border-radius: 16px;
 }
 
@@ -1682,7 +1684,7 @@ h1 span,
     width: 20px;
     height: 20px;
     border-radius: 10px;
-    background: #FFF;
+    background: #1c99ca;
     z-index: 99;
 }
 
@@ -1834,35 +1836,41 @@ body {
 }
 
 #mercury .planet {
-background-image: url('../assets/Mercury.jpeg');
+    background-image: url('../assets/Mercury.jpeg');
 }
 
 #venus .planet {
-background-image: url('../assets/Venus.gif');}
+    background-image: url('../assets/Venus.gif');
+}
 
 #earth .planet {
-background-image: url('../assets/Earth.gif');}
+    background-image: url('../assets/Earth.gif');
+}
 
 #earth .moon {
     background-color: white;
 }
 
 #mars .planet {
-background-image: url('../assets/Mars.gif');}
+    background-image: url('../assets/Mars.gif');
+}
 
 #jupiter .planet {
-background-image: url('../assets/Jupiter.gif');
-background: size 50%;
+    background-image: url('../assets/Jupiter.gif');
+    background: size 50%;
 }
 
 #saturn .planet {
-/* background-image: url('../assets/Saturn.gif'); */}
+    /* background-image: url('../assets/Saturn.gif'); */
+}
 
 #uranus .planet {
-background-image: url('../assets/Uranus.gif');}
+    background-image: url('../assets/Uranus.gif');
+}
 
 #neptune .planet {
-background-image: url('../assets/Neptune.gif');}
+    background-image: url('../assets/Neptune.gif');
+}
 
 /* --------------------------------------------------------------------------- responsive styles */
 @media screen and (max-width: 299px) {
