@@ -1,9 +1,9 @@
 ---
 import "../style.css";
 import "../asteriod.css";
+import Layout from "../layouts/layout.astro";
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,16 +19,48 @@ import "../asteriod.css";
   <body class="opening hide-UI view-2D zoom-large data-close controls-close">
     <div id="navbar">
       <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
-      <h1>
+      <!-- <h1>
         Welcome To Orrery Space App<br /><span
           >by
           <i>@Team Cosmira</i></span
         >
-      </h1>
+      </h1> -->
       <a id="toggle-controls" href="#controls"
-        ><i class="icon-controls"></i>Controls</a
+        ><i class="icon-controls "></i>Controls</a
       >
     </div>
+    <nav class="bg-gray-900 text-white p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-2xl font-bold uppercase tracking-wide">
+          Astro Orrery
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="flex space-x-8">
+          <li>
+            <a
+              href="/"
+              class="text-xl text-white no-underline hover:text-gray-400"
+              >Home</a>
+          </li>
+          <li>
+            <a
+              href="/explore solar"
+              class="text-xl text-white no-underline hover:text-gray-400"
+              >Explore</a>
+          </li>
+          <li>
+            <a
+              href="/objects"
+              class="text-xl text-white no-underline hover:text-gray-400"
+              >About</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <div id="data">
       <a class="sun" title="sun" href="#sunspeed">Sun</a>
       <a class="mercury" title="mercury" href="#mercuryspeed">Mercury</a>
