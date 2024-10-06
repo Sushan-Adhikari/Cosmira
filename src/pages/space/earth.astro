@@ -45,11 +45,35 @@ const image = "../../../assets/Earth.gif";
           🔊
         </button>
         <audio id="audio" class="hidden">
-          <source src="../../../assets/Earth.mp3" type="audio/mpeg" />
+          <source src="../../../assets/earth.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <p>This is how Earth Sounds</p>
       </div>
+
+      <script is:inline>
+        function setupAudio() {
+          const audioControl = document.getElementById("audio-control");
+          const audio = document.getElementById("audio");
+
+          if (
+            audioControl instanceof HTMLElement &&
+            audio instanceof HTMLAudioElement
+          ) {
+            audioControl.addEventListener("click", () => {
+              if (audio.paused) {
+                audio.play();
+              } else {
+                audio.pause();
+                audio.currentTime = 0;
+              }
+            });
+          }
+        }
+
+        // This ensures the script runs after the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", setupAudio);
+      </script>
 
       <div class="flex flex-col ml-10 mt-10">
         <!-- Table Section -->
@@ -59,180 +83,180 @@ const image = "../../../assets/Earth.gif";
           >
             <thead>
               <tr>
-                <th colspan="2" class="px-4 py-2 bg-gray-500 text-center"
-                  >Which one is hazardous?</th
-                >
+                <th colspan="2" class="px-4 py-2 bg-gray-500 text-center">
+                  Which one is hazardous?
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >A</td
+                  >1</td
                 >
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >Yes</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >B</td
-                >
-                <td
-                  class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >No</td
+                  >Apophis</td
                 >
               </tr>
               <tr>
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >C</td
+                  >2</td
                 >
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >No</td
-                >
-              </tr>
-              <tr>
-                <td
-                  class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >D</td
-                >
-                <td
-                  class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >Yes</td
+                  >Bennu</td
                 >
               </tr>
               <tr>
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >E</td
+                  >3</td
                 >
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >Yes</td
+                  >Didymos</td
                 >
               </tr>
               <tr>
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >F</td
+                  >4</td
                 >
                 <td
                   class="border border-black px-6 py-2 bg-gray-700 text-center"
-                  >Yes</td
+                  >2001 FO32</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >5</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >2019 OK</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >6</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >1994 PC1</td
                 >
               </tr>
             </tbody>
           </table>
         </div>
-        <script is:inline>
-          const handleSubmit = async (event) => {
-            event.preventDefault();
-            // Get the input values from the form fields
-            const absolute_magnitude_h = parseFloat(
-              document.getElementById("absolute_magnitude_h").value
-            );
-            const relative_velocity_km_per_sec = parseFloat(
-              document.getElementById("relative_velocity_km_per_sec").value
-            );
-            const miss_distance_km = parseFloat(
-              document.getElementById("miss_distance_km").value
-            );
-            // Static values for min_km and max_km
-            const estimated_diameter_min_km = 0.080883;
-            const estimated_diameter_max_km = 0.180861;
-            // Prepare the data to be sent to the API
-            const data = {
-              absolute_magnitude_h: absolute_magnitude_h,
-              estimated_diameter_min_km: estimated_diameter_min_km,
-              estimated_diameter_max_km: estimated_diameter_max_km,
-              relative_velocity_km_per_sec: relative_velocity_km_per_sec,
-              miss_distance_km: miss_distance_km,
-            };
-            try {
-              // Make a POST request to the Hugging Face Spaces API
-              const response = await fetch(
-                "https://sushanadhikari-orreryspaceapp.hf.space/predict",
-                {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data),
-                }
-              );
-              // Parse the JSON response
-              const result = await response.json();
-              // Check if the asteroid is hazardous and display the result
-              const prediction =
-                result.is_potentially_hazardous_asteroid === 1
-                  ? "Hazardous"
-                  : "Not Hazardous";
-              document.getElementById("result").textContent =
-                `Prediction: ${prediction}`;
-            } catch (error) {
-              console.error("Error:", error);
-              document.getElementById("result").textContent =
-                "Failed to get a response";
-            }
+      </div>
+      <script is:inline>
+        const handleSubmit = async (event) => {
+          event.preventDefault();
+          // Get the input values from the form fields
+          const absolute_magnitude_h = parseFloat(
+            document.getElementById("absolute_magnitude_h").value
+          );
+          const relative_velocity_km_per_sec = parseFloat(
+            document.getElementById("relative_velocity_km_per_sec").value
+          );
+          const miss_distance_km = parseFloat(
+            document.getElementById("miss_distance_km").value
+          );
+          // Static values for min_km and max_km
+          const estimated_diameter_min_km = 0.080883;
+          const estimated_diameter_max_km = 0.180861;
+          // Prepare the data to be sent to the API
+          const data = {
+            absolute_magnitude_h: absolute_magnitude_h,
+            estimated_diameter_min_km: estimated_diameter_min_km,
+            estimated_diameter_max_km: estimated_diameter_max_km,
+            relative_velocity_km_per_sec: relative_velocity_km_per_sec,
+            miss_distance_km: miss_distance_km,
           };
-        </script>
-        <!-- Ask AI Section Below the Table -->
-        <div class="bg-black text-white p-4 flex flex-col">
-          <h1 class="text-lg mb-2">
-            Ask AI if the asteroid is hazardous or not?
-          </h1>
-          <form onsubmit="handleSubmit(event)" class="flex space-x-2">
-            <!-- Input field for Absolute Magnitude -->
-            <input
-              type="number"
-              id="absolute_magnitude_h"
-              placeholder="Absolute Magnitude (as Diameter)"
-              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              step="0.001"
-            />
-            <!-- Input field for Relative Velocity in km/s -->
-            <input
-              type="number"
-              id="relative_velocity_km_per_sec"
-              placeholder="Velocity (km/s)"
-              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              step="0.001"
-            />
-            <!-- Input field for Miss Distance in km -->
-            <input
-              type="number"
-              id="miss_distance_km"
-              placeholder="Miss Distance (km)"
-              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              step="0.001"
-            />
-            <!-- Search button -->
-            <button
-              type="submit"
-              class="bg-gray-700 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          try {
+            // Make a POST request to the Hugging Face Spaces API
+            const response = await fetch(
+              "https://sushanadhikari-orreryspaceapp.hf.space/predict",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+              }
+            );
+            // Parse the JSON response
+            const result = await response.json();
+            // Check if the asteroid is hazardous and display the result
+            const prediction =
+              result.is_potentially_hazardous_asteroid === 1
+                ? "Hazardous"
+                : "Not Hazardous";
+            document.getElementById("result").textContent =
+              `Prediction: ${prediction}`;
+          } catch (error) {
+            console.error("Error:", error);
+            document.getElementById("result").textContent =
+              "Failed to get a response";
+          }
+        };
+      </script>
+      <!-- Ask AI Section Below the Table -->
+      <div class="bg-black text-white p-4 flex flex-col">
+        <h1 class="text-lg mb-2">
+          Ask AI if the asteroid is hazardous or not?
+        </h1>
+        <form onsubmit="handleSubmit(event)" class="flex space-x-2">
+          <!-- Input field for Absolute Magnitude -->
+          <input
+            type="number"
+            id="absolute_magnitude_h"
+            placeholder="Absolute Magnitude (as Diameter)"
+            class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            step="0.001"
+          />
+          <!-- Input field for Relative Velocity in km/s -->
+          <input
+            type="number"
+            id="relative_velocity_km_per_sec"
+            placeholder="Velocity (km/s)"
+            class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            step="0.001"
+          />
+          <!-- Input field for Miss Distance in km -->
+          <input
+            type="number"
+            id="miss_distance_km"
+            placeholder="Miss Distance (km)"
+            class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            step="0.001"
+          />
+          <!-- Search button -->
+          <button
+            type="submit"
+            class="bg-gray-700 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="w-4 h-4"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                class="w-4 h-4"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 10a6 6 0 1112 0 6 6 0 01-12 0zM2 20l5.26-5.26"></path>
-              </svg>
-            </button>
-          </form>
-          <!-- Display the result of the prediction -->
-          <div id="result" class="mt-4 text-lg font-bold"></div>
-        </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 10a6 6 0 1112 0 6 6 0 01-12 0zM2 20l5.26-5.26"></path>
+            </svg>
+          </button>
+        </form>
+        <!-- Display the result of the prediction -->
+        <div id="result" class="mt-4 text-lg font-bold"></div>
       </div>
     </section>
   </div>
