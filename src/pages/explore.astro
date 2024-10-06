@@ -20,6 +20,21 @@ import Layout from "../layouts/layout.astro";
   </head>
 
   <body class="opening hide-UI view-2D zoom-large data-close controls-close">
+    <audio id="background-sound" loop autoplay>
+      <source src="../../assets/music/space.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <script is:inline>
+      // Get the audio element
+      const backgroundMusic = document.getElementById("background-sound");
+
+      // Set the initial volume to 50% (0.5)
+      backgroundMusic.volume = 0.4;
+
+      // You can adjust this value to decrease or increase volume
+      // For example, 0.1 will be 10% volume.
+    </script>
+
     <div id="navbar">
       <a id="toggle-data" href="#data"><i class="icon-data"></i>Data</a>
       <!-- <h1>

@@ -6,18 +6,23 @@ import Layout from "../layouts/layout.astro";
 
 <Layout>
   <div
-    class="w-full md:max-w-[80%] mt-10 mx-auto  text-white shadow-md font- rounded-lg overflow-hidden"
+    class="w-full md:max-w-[80%] mt-10 mx-auto   text-white shadow-md font- rounded-lg overflow-hidden"
     id="quiz-container"
   >
+  <style>
+    #quiz-container {
+     border: solid 2px #141212;
+    }
+  </style>
     <div class="p-6">
       <h2 class="text-2xl font-bold text-center mb-6">Space Quiz</h2>
 
       <!-- Timer Display -->
-      <div class="text-center mb-4 ">
+      <div class="text-center mb-4">
         <span id="timer" class="text-gray-500 font-bold text-xl"></span>
       </div>
 
-      <div id="question-container" class="mb-6 ">
+      <div id="question-container" class="mb-6 text-center">
         <!-- Questions will be dynamically inserted here -->
       </div>
       <div class="flex justify-center">
@@ -34,30 +39,110 @@ import Layout from "../layouts/layout.astro";
 
 <script>
   const quizData = [
+    // Question 1 - Celestial Body Showdown (Multiple Choice)
     {
-      question: "What is the largest planet in our solar system?",
-      options: ["Mars", "Jupiter", "Saturn", "Neptune"],
-      correctAnswer: "Jupiter",
+      question: "Which celestial body would win in a dance-off?",
+      options: [
+        "A) Jupiter, with its gravity-defying moves!",
+        "B) Saturn, with its fabulous ring toss!",
+        "C) Mars, because it’s just 'out of this world!'",
+        "D) The Sun, shining too bright to be upstaged!",
+      ],
+      correctAnswer: "A) Jupiter, with its gravity-defying moves!",
     },
+
+    // Question 2 - Neptune's Orbit (True/False)
     {
-      question: "Which planet is known as the Red Planet?",
-      options: ["Venus", "Mars", "Mercury", "Uranus"],
-      correctAnswer: "Mars",
+      question:
+        "Neptune is known as the 'lazy planet' because it takes 165 Earth years to complete one orbit around the Sun.",
+      options: [
+        "A) True (it's definitely taking its time!)",
+        "B) False (it's just really into long vacations)",
+      ],
+      correctAnswer: "A) True (it's definitely taking its time!)",
     },
+
+    // Question 3 - Asteroid Motto (Fill in the Blank)
     {
-      question: "What is the name of Earth's natural satellite?",
-      options: ["Moon", "Titan", "Europa", "Phobos"],
-      correctAnswer: "Moon",
+      question:
+        "If asteroids had a motto, it would be: 'We’re just rockin’ around the _______!'",
+      correctAnswer: "solar system",
     },
+
+    // Question 4 - Planetary Party (Multiple Choice)
     {
-      question: "Which is the hottest planet in our solar system?",
-      options: ["Mercury", "Venus", "Mars", "Jupiter"],
-      correctAnswer: "Venus",
+      question:
+        "If you could choose a planet to throw a party on, which one would it be?",
+      options: [
+        "A) Venus (for the hottest dance floor)",
+        "B) Mars (because it's a red-hot venue)",
+        "C) Jupiter (the biggest guest list!)",
+        "D) Mercury (it’s a quick stop for a speedy party)",
+      ],
+      correctAnswer: "C) Jupiter (the biggest guest list!)",
     },
+
+    // Question 5 - Comet Humor (True/False)
     {
-      question: "What is the Great Red Spot on Jupiter?",
-      options: ["A volcano", "A storm", "A crater", "An ocean"],
-      correctAnswer: "A storm",
+      question:
+        "Comets are just icy space balls with a sense of humor, always tailing behind and cracking jokes.",
+      options: [
+        "A) True (they're always leaving a trail of laughter!)",
+        "B) False (they're just icy and silent, like introverts)",
+      ],
+      correctAnswer: "B) False (they're just icy and silent, like introverts)",
+    },
+
+    // Question 6 - Orbital Olympics (Multiple Choice)
+    {
+      question:
+        "In the Orbital Olympics, which celestial body would win the 'fastest orbit' gold medal?",
+      options: [
+        "A) Mercury (it’s got a need for speed!)",
+        "B) Earth (running around like it’s late for work)",
+        "C) Saturn (slow and steady wins the ring race)",
+        "D) Neptune (just taking its sweet time, as usual)",
+      ],
+      correctAnswer: "A) Mercury (it’s got a need for speed!)",
+    },
+
+    // Question 7 - Earth’s Nickname (Fill in the Blank)
+    {
+      question:
+        "If Earth were to have a celebrity nickname, it would be: '_______ Planet,' because it’s home to the coolest life forms!",
+      correctAnswer: "Life",
+    },
+
+    // Question 8 - Asteroid Activities (Multiple Choice)
+    {
+      question: "What do you think asteroids like to do on their days off?",
+      options: [
+        "A) Chill in the asteroid belt, sipping cosmic smoothies",
+        "B) Go on road trips to visit the planets",
+        "C) Star in their own reality shows",
+        "D) Just float around and ponder the meaning of life",
+      ],
+      correctAnswer: "A) Chill in the asteroid belt, sipping cosmic smoothies",
+    },
+
+    // Question 9 - Saturn’s Pets (Multiple Choice)
+    {
+      question:
+        "If planets could have pets, Saturn would definitely have a collection of _______ because of its rings!",
+      options: [
+        "A) Hamsters (they love to run around in circles!)",
+        "B) Cats (because they think they’re the center of the universe)",
+        "C) Goldfish (swimming in its rings)",
+        "D) Rocks (it’s all about embracing the cosmic vibes!)",
+      ],
+      correctAnswer: "A) Hamsters (they love to run around in circles!)",
+    },
+
+    // Question 10 - Celestial Jokes (Short Answer)
+    {
+      question:
+        "What’s the funniest thing you’ve ever heard about a planet? (Share your best cosmic joke!)",
+      correctAnswer: "Your best joke!",
     },
   ];
 
@@ -77,10 +162,11 @@ import Layout from "../layouts/layout.astro";
       `;
 
     question.options.forEach((option, index) => {
-      html += `
-          <div class="flex items-center hover:bg-gray-900 hover:cursor-pointer w-1/3 p-2 rounded-full ">
+      html += `<div class="w-full  flex item-center justify-center">
+          <div class="flex  items-center hover:bg-gray-900   hover:cursor-pointer w-1/3 p-2 rounded-full ">
             <input type="radio" id="option${index}" name="answer" value="${option}" class="mr-2">
             <label for="option${index}">${option}</label>
+          </div>
           </div>
         `;
     });
