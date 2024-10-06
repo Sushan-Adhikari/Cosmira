@@ -9,7 +9,10 @@ import Layout from "../layouts/layout.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar System</title>
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -26,40 +29,56 @@ import Layout from "../layouts/layout.astro";
         >
       </h1> -->
       <a id="toggle-controls" href="#controls"
-        ><i class="icon-controls "></i>Controls</a
+        ><i class="icon-controls"></i>Controls</a
       >
     </div>
-    <nav class="bg-gray-900 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <div class="text-2xl font-bold uppercase tracking-wide">
-          Astro Orrery
+    <nav class="bg-[#2E2E2E] text-white p-4 sticky top-0">
+      <div class="flex justify-between items-center">
+        <!-- Left side: logo and text -->
+        <div class="flex items-center space-x-2">
+          <img src="../../assets/logo.png" alt="Cosmira Logo" class="h-16" />
+          <!-- <h1 class="text-2xl font-bold">Cosmira</h1> -->
         </div>
 
-        <!-- Nav Links -->
-        <ul class="flex space-x-8">
-          <li>
-            <a
-              href="/"
-              class="text-xl text-white no-underline hover:text-gray-400"
-              >Home</a>
-          </li>
-          <li>
-            <a
-              href="/explore solar"
-              class="text-xl text-white no-underline hover:text-gray-400"
-              >Explore</a>
-          </li>
-          <li>
-            <a
-              href="/objects"
-              class="text-xl text-white no-underline hover:text-gray-400"
-              >About</a
-            >
-          </li>
+        <!-- Right side: navigation links -->
+        <ul class="nav-links flex space-x-4 pr-4">
+          <li><a href="/" class="nav-item">Home</a></li>
+          <li><a href="/explore" class="nav-item">Explore</a></li>
+          <li><a href="/about" class="nav-item">About</a></li>
+          <li><a href="/spaces" class="nav-item pr-4">Spaces</a></li>
+          <!-- Added pr-4 for right padding -->
         </ul>
       </div>
     </nav>
+    <style>
+      /* Styling for the navbar container */
+
+      /* .head {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-left: 10px;
+      } */
+
+      /* Styling for the navigation links */
+      .nav-links {
+
+        font-family: "Roboto", sans-serif;
+        display: flex;
+        list-style: none;
+        gap: 30px; /* Adds space between each link */
+      }
+
+      .nav-item {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem; /* Text size */
+        transition: color 0.3s ease; /* Smooth color transition */
+      }
+
+      .nav-item:hover {
+        color: #b3b3b3; /* Color change on hover */
+      }
+    </style>
 
     <div id="data">
       <a class="sun" title="sun" href="#sunspeed">Sun</a>

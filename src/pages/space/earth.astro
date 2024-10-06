@@ -1,0 +1,183 @@
+---
+import Layout from "../../layouts/layout.astro";
+import Sidebar from "../../components/sidebar.astro";
+
+const title = "Earth";
+
+const image = "../../../assets/Earth.gif";
+---
+
+<Layout>
+  <div class="flex">
+    <section class="sidebar"><Sidebar /></section>
+    <section class="bg-black text-white w-full">
+      <div class="planet-details flex justify-between w-full">
+        <div class="content ml-10">
+          <h1 class="text-3xl font-bold">{title}</h1>
+          <h2>Description</h2>
+          <p class="max-w-[80ch]">
+            Our home planet Earth is a rocky, terrestrial planet. It has a solid
+            and active surface with mountains, valleys, canyons, plains and so
+            much more. Earth is special because it is an ocean planet. Water
+            covers 70% of Earth's surface. Earth is rounded into an ellipsoid
+            with a circumference of about 40,000 km. It is the densest planet in
+            the Solar System. Of the four rocky planets, it is the largest and
+            most massive. Earth is about eight light-minutes away from the Sun
+            and orbits it, taking a year (about 365.25 days) to complete one
+            revolution. Planet Earth is described a planet that has the third
+            order of the sun and the fifth largest planet of all the planets in
+            the solar system. Earth can also be interpreted as a planet that is
+            home to all the creatures that live on it.
+          </p>
+        </div>
+        <div class="img">
+          <img src={image} alt={title} />
+        </div>
+      </div>
+
+      <div class="sound flex gap-2 items-center ml-10 mt-10 rounded-full">
+        <button
+          class="cursor-pointer"
+          id="audio-control"
+          aria-label="Play audio"
+        >
+          <!-- Icon for play, you can use an SVG or font icon -->
+          🔊
+        </button>
+        <audio id="audio" class="hidden">
+          <source src="../../../assets/sound.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <p>This is how Earth Sounds</p>
+      </div>
+
+      <div class="flex flex-col ml-10 mt-10">
+        <!-- Table Section -->
+        <div class="mb-4">
+          <table
+            class="table-auto bg-gray-800 text-white border-separate border-spacing-0"
+          >
+            <thead>
+              <tr>
+                <th colspan="2" class="px-4 py-2 bg-gray-500 text-center"
+                  >Which one is hazardous?</th
+                >
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >A</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >Yes</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >B</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >No</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >C</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >No</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >D</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >Yes</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >E</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >Yes</td
+                >
+              </tr>
+              <tr>
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >F</td
+                >
+                <td
+                  class="border border-black px-6 py-2 bg-gray-700 text-center"
+                  >Yes</td
+                >
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Ask AI Section Below the Table -->
+        <div class="bg-black text-white p-4 flex flex-col">
+          <h1 class="text-lg mb-2">
+            Ask AI if the asteroid is hazardous or not?
+          </h1>
+
+          <div class="flex space-x-2">
+            <!-- Input field for Name -->
+            <input
+              type="text"
+              placeholder="Name"
+              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <!-- Input field for Diameter -->
+            <input
+              type="number"
+              placeholder="Diameter"
+              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <!-- Input field for Velocity -->
+            <input
+              type="number"
+              placeholder="Velocity"
+              class="bg-gray-700 text-white px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            <!-- Search button -->
+            <button
+              class="bg-gray-700 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 10a6 6 0 1112 0 6 6 0 01-12 0zM2 20l5.26-5.26"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

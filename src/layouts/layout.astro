@@ -1,6 +1,5 @@
 ---
 import Navbar from "../components/navbar.astro";
-
 ---
 
 <!doctype html>
@@ -9,11 +8,16 @@ import Navbar from "../components/navbar.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cosmira</title>
-    
   </head>
   <body>
-    
     <Navbar />
     <slot />
   </body>
 </html>
+
+<style is:global>
+  body {
+    font-family: "Roboto", sans-serif;
+    background: url("../../assets/background.mp4");
+  }
+</style>
