@@ -98,7 +98,7 @@ export async function getStaticPaths() {
   });
 }
 
-const { title, text, image } = Astro.props;
+const { title, text, image, sound } = Astro.props;
 ---
 
 <Layout>
@@ -115,24 +115,44 @@ const { title, text, image } = Astro.props;
           <img src={image} alt={title} />
         </div>
       </div>
-
       <div class="sound flex gap-2 items-center ml-10 mt-10 rounded-full">
         <button
           class="cursor-pointer"
           id="audio-control"
           aria-label="Play audio"
         >
-          <!-- Icon for play, you can use an SVG or font icon -->
           🔊
         </button>
         <audio id="audio" class="hidden">
-          <source src="../../../assets/sound.mp3" type="audio/mpeg" />
+          <source src={sound} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
         <p>This is how {title} Sounds</p>
       </div>
-
-      <!-- Ask AI Section Below the Table -->
     </section>
   </div>
 </Layout>
+
+<script>
+  function setupAudio() {
+    const audioControl = document.getElementById("audio-control");
+    const audio = document.getElementById("audio");
+
+    if (
+      audioControl instanceof HTMLElement &&
+      audio instanceof HTMLAudioElement
+    ) {
+      audioControl.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      });
+    }
+  }
+
+  // This ensures the script runs after the DOM is fully loaded
+  document.addEventListener("DOMContentLoaded", setupAudio);
+</script>
