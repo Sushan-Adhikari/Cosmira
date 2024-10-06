@@ -3,18 +3,53 @@
 ---
 
 <nav class="bg-gray-900 text-white p-4">
-  <div class="container mx-auto flex justify-between items-center">
-    <!-- Logo -->
-    <div class="text-2xl font-bold uppercase tracking-wide">Astro Orrery</div>
+  <div class="flex justify-between items-center">
+    <!-- Left side: logo and text -->
+    <div class="flex items-center space-x-2">
+      <img src="Cosmira/assets/logo.png" alt="Cosmira Logo" class="h-16" />
+      <!-- <h1 class="text-2xl font-bold">Cosmira</h1> -->
+    </div>
 
-    <!-- Nav Links -->
-    <ul class="flex space-x-8 list-none " >
-      <li><a href="/" class="  text-xl text-white no-underline hover:text-gray-400">Home</a></li>
-      <li><a href="/explore" class="text-xl text-white no-underline hover:text-gray-400">Explore</a></li>
-      <li>
-        <a href="/objects" class="text-xl text-white no-underline hover:text-gray-400">About</a>
-      </li>
+    <!-- Right side: navigation links -->
+    <ul class="nav-links flex space-x-4 pr-4">
+      <li><a href="/" class="nav-item">Home</a></li>
+      <li><a href="/explore" class="nav-item">Explore</a></li>
+      <li><a href="/about" class="nav-item">About</a></li>
+      <li><a href="/spaces" class="nav-item pr-4">Spaces</a></li>
+      <!-- Added pr-4 for right padding -->
     </ul>
-
   </div>
 </nav>
+<style>
+  /* Styling for the navbar container */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* .head {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 10px;
+  } */
+
+  /* Styling for the navigation links */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Adds space between each link */
+  }
+
+  .nav-item {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem; /* Text size */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+
+  .nav-item:hover {
+    color: #b3b3b3; /* Color change on hover */
+  }
+</style>
