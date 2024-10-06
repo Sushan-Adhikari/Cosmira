@@ -2,7 +2,7 @@
 // Navbar Component using Tailwind CSS in Astro
 ---
 
-<nav class="bg-[#2E2E2E]  text-white p-4 sticky top-0">
+<nav class="bg-[#2E2E2E] text-white p-4 sticky top-0">
   <div class="flex justify-between items-center">
     <!-- Left side: logo and text -->
     <div class="flex items-center space-x-2">
@@ -11,18 +11,20 @@
     </div>
 
     <!-- Right side: navigation links -->
-    <ul class="nav-links flex space-x-4 pr-4">
-      <li><a href="/" class="nav-item">Home</a></li>
+    <ul class="nav-links flex  ">
+      <li class=""><a href="/" class="nav-item  ">Home</a></li>
+      <li class="h-6 w-[1px] bg-white"></li>
       <li><a href="/explore" class="nav-item">Explore</a></li>
-      <li><a href="/about" class="nav-item">About</a></li>
-      <li><a href="/spaces" class="nav-item pr-4">Spaces</a></li>
+      <li class="h-6 w-[1px] bg-white"></li>
+      <li><a href="/space/sun" class="nav-item ">Spaces</a></li>
+      <li class="h-6 w-[1px] bg-white"></li>
+      <li><a href="/quiz" class="nav-item">Quiz</a></li>
       <!-- Added pr-4 for right padding -->
     </ul>
   </div>
 </nav>
 <style>
   /* Styling for the navbar container */
- 
 
   /* .head {
     font-size: 2rem;
@@ -34,7 +36,7 @@
   .nav-links {
     display: flex;
     list-style: none;
-    gap: 30px; /* Adds space between each link */
+    gap: 20px; /* Adds space between each link */
   }
 
   .nav-item {

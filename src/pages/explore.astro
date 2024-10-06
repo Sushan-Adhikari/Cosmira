@@ -41,11 +41,14 @@ import Layout from "../layouts/layout.astro";
         </div>
 
         <!-- Right side: navigation links -->
-        <ul class="nav-links flex space-x-4 pr-4">
-          <li><a href="/" class="nav-item">Home</a></li>
+        <ul class="nav-links flex">
+          <li class=""><a href="/" class="nav-item">Home</a></li>
+          <li class="h-6 w-[1px] bg-white"></li>
           <li><a href="/explore" class="nav-item">Explore</a></li>
-          <li><a href="/about" class="nav-item">About</a></li>
-          <li><a href="/spaces" class="nav-item pr-4">Spaces</a></li>
+          <li class="h-6 w-[1px] bg-white"></li>
+          <li><a href="/space/sun" class="nav-item">Spaces</a></li>
+          <li class="h-6 w-[1px] bg-white"></li>
+          <li><a href="/quiz" class="nav-item">Quiz</a></li>
           <!-- Added pr-4 for right padding -->
         </ul>
       </div>
@@ -61,7 +64,6 @@ import Layout from "../layouts/layout.astro";
 
       /* Styling for the navigation links */
       .nav-links {
-
         font-family: "Roboto", sans-serif;
         display: flex;
         list-style: none;
@@ -330,21 +332,5 @@ import Layout from "../layouts/layout.astro";
     });
 
     init();
-  });
-
-  const sun = document.querySelector("#sun");
-  sun.addEventListener("click", () => {
-    alert(
-      "The Sun is the star at the center of the Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating the energy mainly as light and infrared radiation."
-    );
-  });
-
-  const planets = document.querySelectorAll(".planet");
-
-  planets.forEach((planet) => {
-    planet.addEventListener("click", () => {
-      const planetName = planet.id.charAt(0).toUpperCase() + planet.id.slice(1);
-      alert(`${planetName} is a planet in the Solar System.`);
-    });
   });
 </script>
