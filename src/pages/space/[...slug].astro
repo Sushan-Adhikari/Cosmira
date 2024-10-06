@@ -14,7 +14,7 @@ export async function getStaticPaths() {
       slug: "earth",
       title: "Astro products",
       text: "We have lots of products for you",
-      image: "../../../assets/Earth.gif",
+      image: "../../../assets/planets/earth.png",
     },
     {
       slug: "moon",
@@ -37,7 +37,7 @@ const { title, text, image } = Astro.props;
 <Layout>
   <div class="flex">
     <section class="sidebar"><Sidebar /></section>
-    <section class="bg-black text-white w-full">
+    <section class=" text-white bg-black w-full">
       <div class="planet-details flex justify-between items-center w-full">
         <div class="content p-10">
           <h1 class="text-3xl font-bold">{title}</h1>

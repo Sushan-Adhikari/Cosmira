@@ -6,18 +6,24 @@ import Layout from "../layouts/layout.astro";
 
 <Layout>
   <div
-    class="w-full max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden"
+    class="w-full md:max-w-[80%] mt-10 mx-auto  text-white shadow-md font- rounded-lg overflow-hidden"
     id="quiz-container"
   >
     <div class="p-6">
       <h2 class="text-2xl font-bold text-center mb-6">Space Quiz</h2>
-      <div id="question-container" class="mb-6">
+
+      <!-- Timer Display -->
+      <div class="text-center mb-4 ">
+        <span id="timer" class="text-gray-500 font-bold text-xl"></span>
+      </div>
+
+      <div id="question-container" class="mb-6 ">
         <!-- Questions will be dynamically inserted here -->
       </div>
       <div class="flex justify-center">
         <button
           id="next-btn"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          class="bg-gray-900 hover:bg-gray-800 cursor-pointer transition-all text-white font-bold py-3 px-4 rounded-full"
         >
           Next Question
         </button>
@@ -57,20 +63,23 @@ import Layout from "../layouts/layout.astro";
 
   let currentQuestion = 0;
   let score = 0;
+  let timeLeft = 120; // 2 minutes for the entire quiz (in seconds)
 
   const questionContainer = document.getElementById("question-container");
   const nextButton = document.getElementById("next-btn");
+  const timerDisplay = document.getElementById("timer");
 
   function displayQuestion() {
+    // font-family: "Roboto", sans-serif;
     const question = quizData[currentQuestion];
     let html = `
-        <h3 class="text-lg font-semibold mb-4">${question.question}</h3>
+        <h3 class="text-2xl font-semibold mb-4">${question.question}</h3>
         <div class="space-y-2">
       `;
 
     question.options.forEach((option, index) => {
       html += `
-          <div class="flex items-center">
+          <div class="flex items-center hover:bg-gray-900 hover:cursor-pointer w-1/3 p-2 rounded-full ">
             <input type="radio" id="option${index}" name="answer" value="${option}" class="mr-2">
             <label for="option${index}">${option}</label>
           </div>
@@ -144,12 +153,28 @@ import Layout from "../layouts/layout.astro";
   function restartQuiz() {
     currentQuestion = 0;
     score = 0;
+    timeLeft = 120; // Reset timer
     displayQuestion();
     nextButton.textContent = "Next Question";
     nextButton.removeEventListener("click", restartQuiz);
     nextButton.addEventListener("click", checkAnswer);
   }
 
+  function startTimer() {
+    const timerInterval = setInterval(() => {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerDisplay.textContent = `Time Left: ${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        showResults(); // Time's up, show results
+      }
+      timeLeft--;
+    }, 1000);
+  }
+
   displayQuestion();
+  startTimer(); // Start the countdown timer when the quiz loads
   nextButton.addEventListener("click", checkAnswer);
 </script>

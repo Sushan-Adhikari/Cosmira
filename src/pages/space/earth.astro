@@ -4,18 +4,18 @@ import Sidebar from "../../components/sidebar.astro";
 
 const title = "Earth";
 
-const image = "../../../assets/Earth.gif";
+const image = "../../../assets/planets/earth.png";
 ---
 
 <Layout>
   <div class="flex">
     <section class="sidebar"><Sidebar /></section>
     <section class="bg-black text-white w-full">
-      <div class="planet-details flex justify-between items-center w-full">
+      <div class="planet-details flex justify-around items-center w-full">
         <div class="content ml-10">
           <h1 class="text-3xl font-bold">{title}</h1>
           <h2>Description</h2>
-          <p class="max-w-[80ch]">
+          <p class="max-w-[70ch] text-gray-400">
             Our home planet Earth is a rocky, terrestrial planet. It has a solid
             and active surface with mountains, valleys, canyons, plains and so
             much more. Earth is special because it is an ocean planet. Water
@@ -31,7 +31,7 @@ const image = "../../../assets/Earth.gif";
           </p>
         </div>
         <div class="img mr-24">
-          <img src={image} alt={title} />
+          <img class="w-[300px]" src={image} alt={title} />
         </div>
       </div>
 

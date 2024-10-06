@@ -1,15 +1,15 @@
 ---
 const objects = [
-  { name: "Sun", slug: "sun", image: "../../assets/Sun.gif" },
-  { name: "Mercury", slug: "mercury", image: "../../assets/Mercury.jpeg" },
-  { name: "Venus", slug: "venus", image: "/assets/Venus.gif" },
-  { name: "Earth", slug: "earth", image: "../../assets/Earth.png" },
-  { name: "Mars", slug: "mars", image: "../../assets/Mars.png" },
-  { name: "Jupiter", slug: "jupiter", image: "../../assets/Jupiter.png" },
-  { name: "Saturn", slug: "saturn", image: "../../assets/Saturn.png" },
-  { name: "Uranus", slug: "uranus", image: "../../assets/Uranus.gif" },
+  { name: "Sun", slug: "sun", image: "../../assets/planets/sun.png" },
+  { name: "Mercury", slug: "mercury", image: "../../assets/planets/mercury.webp" },
+  { name: "Venus", slug: "venus", image: "../../assets/planets/venus.webp" },
+  { name: "Earth", slug: "earth", image: "../../assets/planets/earth.png" },
+  { name: "Mars", slug: "mars", image: "../../assets/planets/mars.png" },
+  { name: "Jupiter", slug: "jupiter", image: "../../assets/planets/jupiter.webp" },
+  { name: "Saturn", slug: "saturn", image: "../../assets/planets/saturn.png" },
+  { name: "Uranus", slug: "uranus", image: "../../assets/planets/uranus.webp" },
   { name: "Neptune", slug: "neptune", image: "../../assets/Neptune.png" },
-  { name: "Pluto", slug: "pluto", image: "../../assets/pluto.png" },
+
   { name: "Asteroids", slug: "asteroids", image: "../../assets/Asteroids.png" },
   
 ];
@@ -18,7 +18,7 @@ const { object } = Astro.params;
 
 <!-- Sidebar Navigation -->
 
-<nav class="bg-[#2E2E2E] text-white h-screen p-6 w-64">
+<nav class="bg-[#141212] text-white h-screen p-6 w-64 shadow-lg ">
   <!-- <h1 class="text-2xl font-bold mb-8 text-center">Learn Space Objects</h2> -->
   <ul class="flex flex-col list-none">
     {
