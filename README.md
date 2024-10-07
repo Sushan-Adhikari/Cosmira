@@ -1,33 +1,36 @@
-# Astro Starter Kit: Minimal
+# Orrery Web App
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Welcome to the Orrery Web App! This project is a web-based application developed using **Astro**, **JavaScript**, and **Tailwind CSS**. The app serves as an educational tool to explore our solar system in an engaging and interactive way.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Table of Contents
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Orrery Web App](#orrery-web-app)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Getting Started](#getting-started)
+  - [🧞 Commands](#-commands)
+  - [👀 Want to learn more?](#-want-to-learn-more)
+  - [Some Screenshots of Our project.](#some-screenshots-of-our-project)
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Landing Page:** An inviting landing page that introduces users to the app.
+- **Explore Page:** A simulated 2D solar system that visually resembles a 3D representation, featuring:
+  - The Sun as a reference point for measuring distances, orbital velocities, and equatorial circumferences.
+  - Dedicated pages for each member of the solar system with relevant information.
+  - Sounds captured by NASA for each celestial body.
+- **Asteroids and Comets Data:** Information about various asteroids and comets, including their astronomical timings and potential hazards.
+- **Quiz Game:** A fun and interactive quiz that helps kids learn about the solar system in an engaging way.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Technologies Used
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **React:** A JavaScript library for building user interfaces.
+- **JavaScript:** The programming language used for application logic.
+- **Tailwind CSS:** A utility-first CSS framework for styling the application.
+- **NASA APIs:** To gather data and sound recordings of celestial bodies.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+## Getting Started
 
 ## 🧞 Commands
 
@@ -45,3 +48,34 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Some Screenshots of Our project.
+
+<!-- label -->
+
+_Landing Page_
+![Landing Page](./assets/screenshot/landingpage.png)
+
+*Explore Page*
+
+![Explore Page](./assets/screenshot/explore_page.png)
+![Space Page](./assets/screenshot/explore_page1.png)
+![Space Page](./assets/screenshot/explore_page2.png)
+
+ *Space Page*
+
+![Space Page](./assets/screenshot/space_page.png)
+
+  *Asteroids and Comets Data*
+
+![Asteroids and Comets Data](./assets/screenshot/space_page2.png)
+![Asteroids and Comets Data](./assets/screenshot/space_page1.png)
+
+            *Quiz Game*
+
+![Quiz Game](./assets/screenshot/quiz.png)
+
+<!-- label-end -->
+
+_The End_
+
